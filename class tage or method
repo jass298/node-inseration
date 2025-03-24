@@ -1,0 +1,20 @@
+<style>
+    .yellow{
+        background-color: yellow;
+        color: white;
+    }
+    .red{
+        background-color:red;
+        color: white;  
+    }
+</style>
+<div id="first" class="text-black red">
+    <span id=" span">hello</span>
+</div>
+ <script>
+first.className = "text-black red"
+first.classList.remove("red")// to remove any class
+first.classList.add("red")//to add any class
+first.classList.contains("red")//to check
+first.classList.toggle("red")//if conatin then reemove ,if not then add 
+ </script>
