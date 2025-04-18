@@ -1,0 +1,46 @@
+<!-- fetch api from google -->
+
+<div id="container"></div>
+<!-- css -->
+<style>
+    th,
+    td {
+        border: 1px solid black;
+    }
+
+    th {
+        color: red;
+        background-color: rgb(194, 223, 224);
+    }
+</style>
+
+<script>
+    function data() {
+
+        let promise = fetch("https://dummyjson.com/products")
+            .then(response => response.json())
+            .then(data => {
+
+                console.log(data);
+                console.log(data.products)
+                const container = document.getElementById("container");
+                let table = "<table><tr><th>ID</th><th>Title</th><th>Description</th></tr>";
+
+
+                for (i = 0; i < 30; i++) {
+                    const product = data.products[i];
+                    // container.innerHTML += `<p>${product.id}</p><br/><p>${product.title}</p>`
+                    container.innerHTML = table += "<tr>" +
+                        "<td>" + product.id + "</td>" +
+                        "<td>" + product.title + "</td>" +
+                        "<td>" + product.description + "</td>" +
+                        "</tr>";
+
+                }
+                table += "</table>"
+            });
+
+    }
+    data();
+
+</script>
