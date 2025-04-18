@@ -1,0 +1,24 @@
+<script>
+
+let promise = fetch("http://goweather.xyz/weather/Berlin")
+
+promise.then((value1) =>{
+console.log(value1.status)
+console.log(value1.ok)//can use ok and status
+return value1.json()
+
+}).then((value2)=>{
+    // return value2.json
+    console.log(value2)
+   
+})
+
+let options = {
+    method : "POST",
+headers : {
+    "Content-type" : "applications/json"
+}
+
+}
+console.log(options)
+</script>
