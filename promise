@@ -1,0 +1,167 @@
+<!-- <p id="p1">p1</p>
+</br>
+ <p id="p2">p1</p> -->
+
+<!-- <script>
+//callbacks
+    function mydisplay(value){
+        document.getElementById("p1").innerHTML = value;        
+
+    }
+function myfunction (){
+    console.log(myfunction);
+    mydisplay("first")
+}
+function myfunctiontwo (){
+    console.log(myfunctiontwo);
+    mydisplay("second")
+}
+myfunction();
+myfunctiontwo();
+
+ </script>  -->
+
+<!-- promise -->
+<!-- <div id="div">this is a div</div>
+
+ <script> 
+
+function myfunction(value){
+document.getElementById("div").innerHTML = value ;
+} 
+myfunction("hello world");
+let mypromise = new Promise(function(myResolve, myReject) {
+myResolve("code is excuted");
+myReject("this is rejected");
+});
+mypromise.then(
+  function(value) { console.log(value) },
+  function(error) { console.log(error)}
+
+);
+mypromise.then(
+ console.log("reject") 
+);
+setTimeout(() => {
+  myfunction("thixs is a div");  
+}, 1000); -->
+<script>
+
+  // task 2..all,allsetteled,race
+
+
+  //  let p1 = new Promise((resolve, reject) => {
+  //   setTimeout(()=>{
+  //     resolve("value 1")
+  //   },1000);
+  //  });
+
+  //  p1.then((value) =>{
+  //     console.log(value)
+  //  });
+
+  //  let p2 = new Promise((resolve2, reject2) => {
+  //   setTimeout(()=>{
+  //     resolve2("value 2")
+  //   },2000);
+  //  });
+
+
+  //  p2.then((value2) =>{
+  //     console.log(value2)
+  //  });
+  //  let presult =Promise.all([p1,p2])
+  //  presult.then((value)=>{
+  //     console.log(value)
+  //  })
+
+  // problem no.1
+  //  // let pro = new Promise((resolve, reject) => {
+  // //     setTimeout(()=>{ 
+  // //       resolve(console.log("file is loaded"));
+  // //     },2000);
+  // // })
+  // // pro.then((result)=>{
+
+  // //   alert("process is done");
+  // // })
+
+  // problem no.2 catch handle the error
+
+  //  let p = new Promise((resolve, reject) => {
+  //   setTimeout(()=>{
+  //     reject((console.log("the data ism rejected")))
+  //   },3000)
+  // console.log(a)
+  //  })
+  // p.catch((error)=>{
+  //   console.log(error)
+  // });
+
+// problem no 3 using async and await
+
+//  let p = () => {
+
+//    return new Promise((resolve, reject) => {
+//       setTimeout(() => {
+//         reject(new Error("this is a error"))
+//       }, 3000)
+//     })
+//   }
+//   let a = async () => {
+//     try{
+//       let c = await p()
+//       console.log(c)
+//     }
+//  catch(err){
+//   console.log(err)
+//  }
+//   }
+// a()
+
+// problem no.4
+
+
+   let p1 =async () =>{
+
+   return new Promise((resolve, reject) => {
+    setTimeout(()=>{
+      resolve("value 1")
+    },1000);
+   });
+    
+  }
+
+   let p2 =async () =>{
+    return new Promise((resolve2, reject2) => {
+    setTimeout(()=>{
+      resolve2("value 2")
+    },2000);
+   });
+  }
+   let p3 =async () =>{
+    return new Promise((resolve3, reject3) => {
+    setTimeout(()=>{
+      resolve3("value 3")
+    },3000);
+   });
+  }
+
+  const run  =async ()=>{
+    console.time("run")
+    let a1 = await p3()
+    console.log(a1);
+    let a2 = await p2()
+    console.log(a2);
+    let a3 = await p1()
+    console.log(a3);
+    console.timeEnd("run")
+    let aaaa= await Promise.all([a1,a2,a3])
+    console.log(aaaa)
+  }
+  run()
+    // let pall = Promise.all([p1, p2,p3])
+    // pall.then((value)=>{
+    //    console.log(value)
+    // })
+</script>
